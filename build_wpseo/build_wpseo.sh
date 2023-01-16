@@ -12,17 +12,21 @@ premium='';
 dorequire='';
 quick='false';
 verbose='false';
+force='false'
+watch='false'
 
 print_usage() {
   printf "Usage: ..."
 }
 
-while getopts 'pr:q' flag; do
+while getopts 'pr:qfw' flag; do
   case "${flag}" in
     p) premium='true' ;;
     r) echo "${OPTARG}"
        dorequire="${OPTARG}" ;;
     q) quick='true' ;;
+    f) force='true' ;;
+    w) watch='true' ;;
     *) print_usage 
        exit 1 ;;
   esac
@@ -53,16 +57,37 @@ fi
 
 if [[ $quick == "true" ]]
 then
-  grunt build:js
+  if [ $force == 'true' ]
+  then
+    grunt build:js --force
+  else
+    grunt build:js
+  fi
+
   cd $current_path
   pwd
-  exit 32
+  exit 0
 fi
 
 
 composer install
 yarn
-grunt build
+
+if [ $force == 'true' ]
+then
+  grunt build --force
+else
+  grunt build
+
+if [ $watch == 'true' ] && [ $premium == 'true' ]
+then
+  grunt webpack:watch
+elif [ $watch == 'true' ] && [ $premium == 'false' ]
+then
+  grunt shell:webpack-watch
+fi
+
+
 
 cd $current_path
 pwd
