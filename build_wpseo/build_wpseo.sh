@@ -2,7 +2,7 @@
 set -x
 set -e
 
-. /Users/hugo/productivity_scripts/build_wpseo/build_wpseo.config;
+. /Users/hugo/Projects/productivity_scripts/build_wpseo/build_wpseo.config;
 
 current_path=$(pwd);
 

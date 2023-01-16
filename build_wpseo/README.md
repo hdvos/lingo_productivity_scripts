@@ -4,7 +4,7 @@
 * In `build_wpseo.config` change the paths to where your wpseo and wpseo-premium are located.
 
 * In `build_wpseo.sh` on `line 5`: change this to `. /Wherever/you/saved/the/config/file/build_wpseo.config;`
-* Move `build_wpseo.sh` to a folder that is in your `PATH` variable. For example `/usr/local/bin`.
+* Move (or copy) `build_wpseo.sh` to a folder that is in your `PATH` variable. For example `/usr/local/bin`.
 
 * Now you can call `sh build_wpseo.sh` from anywhere.
 
