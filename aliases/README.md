@@ -1,6 +1,7 @@
 A bunch of useful aliasses for lingo devs
 
 ## Setup
+Find where you stored `my_locations.config`. In this repository this is 1 folder up.
 
 1. Add and adapt the following line to your aliases in your `.zshrc`: 
 ```
