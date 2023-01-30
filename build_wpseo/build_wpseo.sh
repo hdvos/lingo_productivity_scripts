@@ -2,7 +2,7 @@
 set -x
 set -e
 
-. /Users/hugo/Projects/productivity_scripts/build_wpseo/build_wpseo.config;
+. /Users/hugo/Projects/productivity_scripts/my_locations.config;
 
 current_path=$(pwd);
 
@@ -57,38 +57,38 @@ fi
 
 if [[ $quick == "true" ]]
 then
-  if [ $force == 'true' ]
-  then
-    grunt build:js --force
-  else
-    grunt build:js
-  fi
-
+  # if [ $force == "true" ]
+  # then
+  #   grunt build:js --force
+  # else
+  #   grunt build:js
+  # fi
+  grunt build
   cd $current_path
   pwd
   exit 0
 fi
 
-
 composer install
 yarn
 
-if [ $force == 'true' ]
-then
-  grunt build --force
-else
-  grunt build
+# if [ $force == "true" ]
+# then
+#   grunt build --force
+# else
+#   grunt build
+# fi
 
-if [ $watch == 'true' ] && [ $premium == 'true' ]
+grunt build
+
+if [ $watch == "true" ] && [ $premium == "true" ]
 then
   grunt webpack:watch
-elif [ $watch == 'true' ] && [ $premium == 'false' ]
+elif [ $watch == "true" ] && [ $premium == "false" ]
 then
   grunt shell:webpack-watch
 fi
 
 
-
 cd $current_path
 pwd
-
