@@ -1,4 +1,4 @@
-A bunch of useful aliasses for lingo devs
+My personal aliases I use in my development. Made them public for whomever finds them useful.
 
 ## Setup
 Find where you stored `my_locations.config`. In this repository this is 1 folder up.
